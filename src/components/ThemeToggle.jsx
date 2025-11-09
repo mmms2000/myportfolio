@@ -36,6 +36,8 @@ export const ThemeToggle = () => {
       if (metaThemeColor) metaThemeColor.setAttribute("content", "#0f172a");
       setIsDarkMode(true);
     }
+
+      window.location.reload();
   };
 
   return (
