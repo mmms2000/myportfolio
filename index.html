@@ -4,7 +4,17 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="theme-color" content="#000000" />
+
+     <script>
+      (function () {
+        const storedTheme = localStorage.getItem("theme");
+        const isDark = storedTheme === "dark";
+        const color = isDark ? "#0f172a" : "#ffffff"; 
+        document.write(`<meta name="theme-color" content="${color}">`);
+        if (isDark) document.documentElement.classList.add("dark");
+      })();
+    </script>
+
     <title>moses myat min shwe</title>
   </head>
   <body>
