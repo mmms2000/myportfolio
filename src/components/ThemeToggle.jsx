@@ -9,9 +9,16 @@ export const ThemeToggle = () => {
     const storedTheme = localStorage.getItem("theme");
     if (storedTheme === "dark") {
       setIsDarkMode(true);
+
+      const metaThemeColor = document.querySelector("meta[name='theme-color']");
+    if (metaThemeColor) metaThemeColor.setAttribute("content", "#ffffff");
+    
       document.documentElement.classList.add("dark");
     } else {
       setIsDarkMode(false);
+      const metaThemeColor = document.querySelector("meta[name='theme-color']");
+    if (metaThemeColor) metaThemeColor.setAttribute("content", "#0f172a");
+
       document.documentElement.classList.remove("dark");
     }
   }, []);
@@ -21,6 +28,7 @@ export const ThemeToggle = () => {
       document.documentElement.classList.remove("dark");
       localStorage.setItem("theme", "light");
       setIsDarkMode(false);
+
     } else {
       document.documentElement.classList.add("dark");
       localStorage.setItem("theme", "dark");
