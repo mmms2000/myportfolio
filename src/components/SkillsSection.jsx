@@ -11,9 +11,7 @@ const skills = [
   { name: "Redux", level: 80, category: "frontend" },
   { name: "Styled-Components", level: 90, category: "frontend" },
   { name: "Tailwind CSS", level: 80, category: "frontend" },
-  { name: "React Query", level: 80, category: "frontend" },
-  { name: "TypeScript", level: 75, category: "frontend" },
-  { name: "Next.js", level: 70, category: "frontend" },
+  { name: "React Query", level: 60, category: "frontend" },
 
   // Backend
   { name: "Node.js", level: 10, category: "backend" },
