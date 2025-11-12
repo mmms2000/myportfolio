@@ -3,9 +3,9 @@ import { cn } from "../lib/utils";
 
 const skills = [
   // Frontend
-  { name: "HTML/CSS", level: 95, category: "frontend" },
-  { name: "JavaScript", level: 90, category: "frontend" },
-  { name: "React", level: 90, category: "frontend" },
+  { name: "HTML/CSS", level: 85, category: "frontend" },
+  { name: "JavaScript", level: 85, category: "frontend" },
+  { name: "React", level: 85, category: "frontend" },
   { name: "React Router", level: 85, category: "frontend" },
   { name: "Recoil", level: 85, category: "frontend" },
   { name: "Redux", level: 80, category: "frontend" },
@@ -14,15 +14,14 @@ const skills = [
   { name: "React Query", level: 60, category: "frontend" },
 
   // Backend
-  { name: "Node.js", level: 10, category: "backend" },
+  { name: "Node.js", level: 20, category: "backend" },
   { name: "Express", level: 20, category: "backend" },
   { name: "MongoDB", level: 65, category: "backend" },
-  { name: "PostgreSQL", level: 30, category: "backend" },
 
   // Tools
   { name: "Git / GitHub", level: 90, category: "tools" },
   { name: "Vercel", level: 85, category: "tools" },
-  { name: "Figma", level: 80, category: "tools" },
+  { name: "Figma", level: 90, category: "tools" },
   { name: "Visual Studio Code", level: 95, category: "tools" },
   { name: "IntelliJ IDEA", level: 50, category: "tools" },
 ];
