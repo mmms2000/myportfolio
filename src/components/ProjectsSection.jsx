@@ -6,7 +6,7 @@ const projects = [
     title: "Memory Mingle",
     description:
       "A shared photo album platform that allows close friends to create and share memorable moments together. I was responsible for developing the album group creation and display pages, as well as the search page.",
-    image: "/src/projects/project1.png",
+    image: "/src/assets/project1.png",
     tags: ["React", "styledComponent", "React-Router", "Recoil", "React-Query"],
     demoUrl: "https://github.com/MemoryMingle/FE.git",
     githubUrl: "https://github.com/MemoryMingle/FE.git",
