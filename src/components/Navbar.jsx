@@ -5,10 +5,10 @@ import { ThemeToggle } from "./ThemeToggle";
 
 const navItems = [
   { name: "Home", href: "#hero" },
-  { name: "About", href: "#About" },
-  { name: "Skill", href: "#Skill" },
-  { name: "Project", href: "#Project" },
-  { name: "Contact", href: "#Contact" },
+  { name: "About", href: "#about" },
+  { name: "Skill", href: "#skills" },
+  { name: "Project", href: "#projects" },
+  { name: "Contact", href: "#contact" },
 ];
 
 export const Navbar = () => {
@@ -17,12 +17,18 @@ export const Navbar = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 10);
+      if (window.scrollY > 10) {
+        setIsScrolled(true);
+      } else {
+        setIsScrolled(false);
+      }
     };
 
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+
   return (
     <nav
       className={cn(
@@ -62,7 +68,7 @@ export const Navbar = () => {
             setIsMenuOpen(!isMenuOpen);
           }}
           className="md:hidden p-2 text-foreground z-50 pr-9"
-          aria-label={isMenuOpen? "Close Menu" : "Open Menu" }
+          aria-label={isMenuOpen ? "Close Menu" : "Open Menu"}
         >
           {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
         </button>
@@ -89,7 +95,7 @@ export const Navbar = () => {
               </a>
             ))}
             <div className="pt-10 z-10">
-                <ThemeToggle/>
+              <ThemeToggle isScrolled={isScrolled} />
             </div>
           </div>
         </div>
