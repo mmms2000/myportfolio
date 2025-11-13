@@ -18,6 +18,8 @@ export const ThemeToggle = ({isScrolled}) => {
     }
   }, []);
 
+  console.log("isScrolle",isScrolled)
+
   const toggleTheme = () => {
     if (isDarkMode) {
       document.documentElement.classList.remove("dark");
@@ -36,10 +38,9 @@ export const ThemeToggle = ({isScrolled}) => {
       onClick={toggleTheme}
       className={cn(
         "fixed right-5 z-50 p-2 rounded-full transition-all duration-300 ease-in-out focus:outline-none",
-        isScrolled ? "top-3 md:top-3" : "top-5 md:top-4"
+        isScrolled ? "top-3" : "top-5 "
       )}
     >
-      {" "}
       {isDarkMode ? (
         <Sun className="h-6 w-6 text-yellow-300" />
       ) : (
