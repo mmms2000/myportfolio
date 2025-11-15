@@ -1,9 +1,11 @@
 import { Moon, Sun } from "lucide-react";
 import { useEffect, useState } from "react";
 import { cn } from "@/lib/utils";
+import { useScroll } from "../lib/useScroll";
 
-export const ThemeToggle = ({isScrolled}) => {
+export const ThemeToggle = ({isMenuOpen}) => {
   const [isDarkMode, setIsDarkMode] = useState(false);
+  const { isScrolled } = useScroll(10);   
 
   useEffect(() => {
     const storedTheme = localStorage.getItem("theme");
@@ -16,7 +18,21 @@ export const ThemeToggle = ({isScrolled}) => {
 
       document.documentElement.classList.remove("dark");
     }
+
+    
   }, []);
+
+  useEffect(() => {
+  if (isMenuOpen) {
+    document.body.style.overflow = "hidden";
+  } else {
+    document.body.style.overflow = "";
+  }
+
+  return () => {
+    document.body.style.overflow = "";
+  };
+}, [isMenuOpen]);
 
   console.log("isScrolle",isScrolled)
 
@@ -38,7 +54,7 @@ export const ThemeToggle = ({isScrolled}) => {
       onClick={toggleTheme}
       className={cn(
         "fixed right-5 z-50 p-2 rounded-full transition-all duration-300 ease-in-out focus:outline-none",
-        isScrolled ? "top-3" : "top-5 "
+        isScrolled ? "top-3 md:top-2" : "top-5 md:top-4 ",
       )}
     >
       {isDarkMode ? (

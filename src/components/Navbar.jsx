@@ -1,7 +1,8 @@
 import { cn } from "@/lib/utils";
 import { Menu, X } from "lucide-react";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { ThemeToggle } from "./ThemeToggle";
+import { useScroll } from "../lib/useScroll";
 
 const navItems = [
   { name: "Home", href: "#hero" },
@@ -12,29 +13,16 @@ const navItems = [
 ];
 
 export const Navbar = () => {
-  const [isScrolled, setIsScrolled] = useState(false);
+
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      if (window.scrollY > 10) {
-        setIsScrolled(true);
-      } else {
-        setIsScrolled(false);
-      }
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
+  const { isScrolled } = useScroll(10);   
 
   return (
     <nav
       className={cn(
         "fixed w-full z-40 transition-all duration-300",
         isScrolled
-          ? "py-3 bg-background/80 backdrop-blur-md shadow-xs  "
+          ? "py-3 bg-background/80  shadow-xs  "
           : "py-5"
       )}
     >
@@ -50,7 +38,7 @@ export const Navbar = () => {
         </a>
 
         {/* Deskto Nav */}
-        <div className="hidden md:flex space-x-8">
+        <div className="hidden md:flex  space-x-8">
           {navItems.map((item, key) => (
             <a
               key={key}
@@ -67,7 +55,7 @@ export const Navbar = () => {
           onClick={() => {
             setIsMenuOpen(!isMenuOpen);
           }}
-          className="md:hidden p-2 text-foreground z-50 pr-9"
+          className="md:fixed md:hidden p-2 text-foreground z-50 pr-9"
           aria-label={isMenuOpen ? "Close Menu" : "Open Menu"}
         >
           {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
@@ -95,7 +83,7 @@ export const Navbar = () => {
               </a>
             ))}
             <div className="pt-10 z-10">
-              <ThemeToggle isScrolled={isScrolled} />
+              <ThemeToggle isScrolled={isScrolled} isMenuOpen={isMenuOpen} />
             </div>
           </div>
         </div>
