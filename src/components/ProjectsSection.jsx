@@ -1,5 +1,7 @@
 import { ExternalLink, Github } from "lucide-react";
-import project1 from '../assets/project1.png'
+import project1 from "../assets/project1.png";
+import project2 from "../assets/project2.png";
+import project3 from "../assets/project3.png";
 
 const projects = [
   {
@@ -12,6 +14,25 @@ const projects = [
     demoUrl: "https://github.com/MemoryMingle/FE.git",
     githubUrl: "https://github.com/MemoryMingle/FE.git",
   },
+  {
+    id: 2,
+    title: "Personal Portfolio Website",
+    description:
+      "A responsive and modern portfolio website built to showcase my projects, skills, and experience as a frontend developer. It features a dynamic theme toggle, smooth scroll animations, and reusable React components for scalability.",
+    image: project2, 
+    tags: ["React", "Tailwind CSS", "JavaScript", "Lucide-React", "Vercel"],
+    demoUrl: "https://mosesmyatminshwe.vercel.app", 
+  },
+  {
+  id: 3,
+  title: "My Portfolio Website",
+  description:
+    "A personal portfolio website built with React and Tailwind CSS to showcase my projects, skills, and development journey. It includes a responsive design, dark mode toggle, smooth scrolling, and reusable components for easy scalability.",
+  image: project3, 
+  tags: ["React", "Tailwind CSS", "Lucide-React", "Vercel"],
+  demoUrl: "https://mosesmyatminshwe-woad.vercel.app/", 
+  githubUrl: "https://github.com/mmms2000/myportfolio",
+},
 ];
 
 export const ProjectsSection = () => {
@@ -36,11 +57,13 @@ export const ProjectsSection = () => {
             className="group bg-card rounded-lg overflow-hidden shadow-xs card-hover"
           >
             <div className="md:h-60 h-48 overflow-hidden">
-              <img
-                src={project.image}
-                alt={project.title}
-                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110 "
-              />
+              <a href={project.demoUrl} >
+                <img
+                  src={project.image}
+                  alt={project.title}
+                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110 "
+                />
+              </a>
             </div>
 
             <div className="p-6">
