@@ -55,9 +55,9 @@ export const ProjectsSection = () => {
           <div
             key={key}
             className="group relative bg-card rounded-lg overflow-hidden 
-             border-[2px] border-foreground
-             shadow-[0_0_15px_hsl(var(--foreground)),inset_0_0_15px_hsl(var(--foreground))]
-             hover:shadow-[0_0_25px_hsl(var(--foreground)),inset_0_0_20px_hsl(var(--foreground))]
+             border-[2px] border-primary
+             shadow-[0_0_15px_hsl(var(--primary)),inset_0_0_15px_hsl(var(--primary))]
+             hover:shadow-[0_0_25px_hsl(var(--primary)),inset_0_0_20px_hsl(var(--primary))]
              transition-all duration-500 hover:scale-[1.02] card-hover"
           >
             <div className="md:h-100 h-48 overflow-hidden">
