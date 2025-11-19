@@ -54,9 +54,13 @@ export const ProjectsSection = () => {
         {projects.map((project, key) => (
           <div
             key={key}
-            className="group bg-card rounded-lg overflow-hidden shadow-xs card-hover"
+            className="group relative bg-card rounded-lg overflow-hidden 
+             border-[2px] border-foreground
+             shadow-[0_0_15px_hsl(var(--foreground)),inset_0_0_15px_hsl(var(--foreground))]
+             hover:shadow-[0_0_25px_hsl(var(--foreground)),inset_0_0_20px_hsl(var(--foreground))]
+             transition-all duration-500 hover:scale-[1.02] card-hover"
           >
-            <div className="md:h-60 h-48 overflow-hidden">
+            <div className="md:h-100 h-48 overflow-hidden">
               <a href={project.demoUrl} >
                 <img
                   src={project.image}
