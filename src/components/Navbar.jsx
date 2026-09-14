@@ -1,6 +1,6 @@
 import { cn } from "@/lib/utils";
 import { Menu, X } from "lucide-react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { ThemeToggle } from "./ThemeToggle";
 import { useScroll } from "../lib/useScroll";
 
@@ -15,7 +15,15 @@ const navItems = [
 export const Navbar = () => {
 
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const { isScrolled } = useScroll(10);   
+  const { isScrolled } = useScroll(10);
+
+  // lock body scroll while the mobile menu is open
+  useEffect(() => {
+    document.body.style.overflow = isMenuOpen ? "hidden" : "";
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [isMenuOpen]);
 
   return (
     <nav
@@ -37,29 +45,34 @@ export const Navbar = () => {
           </span>
         </a>
 
-        {/* Deskto Nav */}
-        <div className="hidden md:flex  space-x-8">
-          {navItems.map((item, key) => (
-            <a
-              key={key}
-              href={item.href}
-              className="text-foreground/80 hover:text-primary transition-colors duration-300"
-            >
-              {item.name}
-            </a>
-          ))}
-        </div>
-        {/* Mobile Nav */}
+        <div className="flex items-center gap-8">
+          {/* Desktop Nav */}
+          <div className="hidden md:flex space-x-8">
+            {navItems.map((item, key) => (
+              <a
+                key={key}
+                href={item.href}
+                className="text-foreground/80 hover:text-primary transition-colors duration-300"
+              >
+                {item.name}
+              </a>
+            ))}
+          </div>
 
-        <button
-          onClick={() => {
-            setIsMenuOpen(!isMenuOpen);
-          }}
-          className="md:fixed md:hidden p-2 text-foreground z-50 pr-9"
-          aria-label={isMenuOpen ? "Close Menu" : "Open Menu"}
-        >
-          {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
-        </button>
+          <ThemeToggle />
+
+          {/* Mobile Nav */}
+          <button
+            onClick={() => {
+              setIsMenuOpen(!isMenuOpen);
+            }}
+            className="md:hidden p-2 text-foreground z-50"
+            aria-label={isMenuOpen ? "Close Menu" : "Open Menu"}
+          >
+            {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
+          </button>
+        </div>
+
         <div
           className={cn(
             "fixed inset-0 bg-background/95 backdrop:blur-md z-40 flex flex-col items-center justify-center",
@@ -82,9 +95,6 @@ export const Navbar = () => {
                 {item.name}
               </a>
             ))}
-            <div className="pt-10 z-10">
-              <ThemeToggle isScrolled={isScrolled} isMenuOpen={isMenuOpen} />
-            </div>
           </div>
         </div>
       </div>
