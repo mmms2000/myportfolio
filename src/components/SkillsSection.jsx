@@ -12,11 +12,22 @@ const skills = [
   { name: "Styled-Components", level: 90, category: "frontend" },
   { name: "Tailwind CSS", level: 80, category: "frontend" },
   { name: "React Query", level: 60, category: "frontend" },
+  { name: "Next.js", level: 80, category: "frontend" },
+  { name: "TypeScript", level: 75, category: "frontend" },
+  { name: "Zustand", level: 75, category: "frontend" },
+  { name: "React Hook Form", level: 70, category: "frontend" },
+  { name: "i18n (next-intl)", level: 70, category: "frontend" },
+  { name: "WebRTC", level: 60, category: "frontend" },
 
   // Backend
   { name: "Node.js", level: 20, category: "backend" },
   { name: "Express", level: 20, category: "backend" },
   { name: "MongoDB", level: 65, category: "backend" },
+  { name: "Spring Boot", level: 75, category: "backend" },
+  { name: "Java", level: 70, category: "backend" },
+  { name: "PostgreSQL", level: 70, category: "backend" },
+  { name: "Redis", level: 55, category: "backend" },
+  { name: "REST API", level: 80, category: "backend" },
 
   // Tools
   { name: "Git / GitHub", level: 90, category: "tools" },
@@ -24,6 +35,10 @@ const skills = [
   { name: "Figma", level: 90, category: "tools" },
   { name: "Visual Studio Code", level: 95, category: "tools" },
   { name: "IntelliJ IDEA", level: 50, category: "tools" },
+  { name: "Vite", level: 80, category: "tools" },
+  { name: "Gradle", level: 60, category: "tools" },
+  { name: "Docker", level: 55, category: "tools" },
+  { name: "Firebase / FCM", level: 65, category: "tools" },
 ];
 
 const categories = ["all", "frontend", "backend", "tools"];
