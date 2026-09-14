@@ -1,42 +1,49 @@
 import { ExternalLink, Github, Lock } from "lucide-react";
+import winkorea from "../assets/winkorea.jpg";
+import winkoreavisa from "../assets/winkoreavisa.jpg";
+import nbridge from "../assets/nbridge.jpg";
+import easytongyeok from "../assets/easytongyeok.jpg";
 import project1 from "../assets/project1.png";
 import project2 from "../assets/project2.png";
 import project3 from "../assets/project3.png";
 
 const projects = [
-  ,
-  {
+{
     id: 4,
     title: "WIN KOREA — 외국인 구직·상담 플랫폼",
     description:
       "A lead-funnel platform connecting foreign job seekers in Korea with consultants. Applicants submit a resume and inquiry, staff are assigned, and the case moves through chat consultation to completion. Multilingual by default.",
+    image: winkorea,
     tags: ["Next.js", "TypeScript", "Tailwind CSS", "React Query", "Zustand", "Spring Boot", "PostgreSQL", "Redis"],
+    demoUrl: "https://winkorea.net",
     private: true,
   },
-  ,
-  {
+{
     id: 5,
     title: "WIN KOREA Visa — 비자 서류 준비 시스템",
     description:
       "An internal tool that collects international students' documents once, verifies them once, and reuses them everywhere — auto-filling the Korean immigration integrated application form (별지 제34호) as a print-ready PDF.",
+    image: winkoreavisa,
     tags: ["React", "Vite", "TypeScript", "Tailwind CSS", "Spring Boot", "Java 21", "PostgreSQL", "PDFBox"],
+    demoUrl: "https://winkoreavisa.vercel.app",
     private: true,
   },
-  ,
-  {
+{
     id: 6,
     title: "N.Bridge Center — 좌석·룸 예약 및 출입 관리",
     description:
       "A full-stack reservation and access system for a student support center in Busan. Students book seats or rooms on a live floor map and receive a digital door key over KakaoTalk; admins manage approvals, members, and visit statistics.",
+    image: nbridge,
     tags: ["Next.js", "TypeScript", "Tailwind CSS", "React Query", "Zustand", "Spring Boot", "PostgreSQL", "FCM", "i18n"],
+    demoUrl: "https://nbridge.vercel.app",
     private: true,
   },
-  ,
-  {
+{
     id: 7,
     title: "Easy 통역 — 실시간 라이브 통역 서비스",
     description:
       "Real-time live interpretation for multilingual services. Listeners scan a QR code and hear their language instantly — no app, no login — across 76 languages, with seamless language switching mid-stream. Interpreters broadcast straight from the browser.",
+    image: easytongyeok,
     tags: ["Next.js", "TypeScript", "Tailwind CSS", "WebRTC", "Spring Boot", "PostgreSQL"],
     demoUrl: "https://easytongyeok.org",
     private: true,
@@ -51,8 +58,7 @@ const projects = [
     demoUrl: "https://github.com/MemoryMingle/FE.git",
     githubUrl: "https://github.com/MemoryMingle/FE.git",
   },
-  ,
-  {
+{
     id: 2,
     title: "Personal Portfolio Website",
     description:
@@ -61,8 +67,7 @@ const projects = [
     tags: ["React", "Tailwind CSS", "JavaScript", "Lucide-React", "Vercel"],
     demoUrl: "https://mosesmyatminshwe.vercel.app", 
   },
-  ,
-  {
+{
   id: 3,
   title: "My Portfolio Website",
   description:
