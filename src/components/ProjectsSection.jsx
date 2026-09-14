@@ -87,7 +87,7 @@ export const ProjectsSection = () => {
           Featured <span className="text-primary"> Projects</span>
         </h2>
 
-        <p className="text-center text-muted-foreground mb-12 max-w-2xl max-auto">
+        <p className="text-center text-muted-foreground mb-12 max-w-2xl mx-auto">
           Here are some of my recent projects. each one highlights my passion
           for creating clean, responsive, and dynamic web applications using
           modern frameworks and tools.

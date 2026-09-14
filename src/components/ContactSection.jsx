@@ -99,7 +99,7 @@ export const ContactSection = () => {
             </div>
 
             <div className="pt-8">
-              <h4 className="font-medium bm-4"> Connect With Me</h4>
+              <h4 className="font-medium mb-4"> Connect With Me</h4>
               <div className="flex space-x-4 justify-center">
                 <a
                   href="https://www.instagram.com/moses_myat_min_shwe?igsh=cGN5c3ZhM2V0MHBy&utm_source=qr"
@@ -127,7 +127,7 @@ export const ContactSection = () => {
               <div>
                 <label
                   htmlFor="name"
-                  className="block text-sm font-medium bm-2"
+                  className="block text-sm font-medium mb-2"
                 >
                   {" "}
                   Your Name
@@ -137,14 +137,14 @@ export const ContactSection = () => {
                   id="name"
                   name="name"
                   required
-                  className="w-full px-4 py-3 rounded-md border border-input bg-background focus:outlind-hidden focus:ring-2 focus:ring-primary"
+                  className="w-full px-4 py-3 rounded-md border border-input bg-background focus:outline-none focus:ring-2 focus:ring-primary"
                   placeholder="moses myat min shwe"
                 />
               </div>
               <div>
                 <label
                   htmlFor="name"
-                  className="block text-sm font-medium bm-2"
+                  className="block text-sm font-medium mb-2"
                 >
                   {" "}
                   Your Email
@@ -154,14 +154,14 @@ export const ContactSection = () => {
                   id="email"
                   name="email"
                   required
-                  className="w-full px-4 py-3 rounded-md border border-input bg-background focus:outlind-hidden focus:ring-2 focus:ring-primary"
+                  className="w-full px-4 py-3 rounded-md border border-input bg-background focus:outline-none focus:ring-2 focus:ring-primary"
                   placeholder="moseskmcmmms@gmail.com"
                 />
               </div>
               <div>
                 <label
                   htmlFor="name"
-                  className="block text-sm font-medium bm-2"
+                  className="block text-sm font-medium mb-2"
                 >
                   {" "}
                   Your Message
