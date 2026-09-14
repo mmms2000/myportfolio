@@ -92,9 +92,8 @@ export const ProjectsSection = () => {
           for creating clean, responsive, and dynamic web applications using
           modern frameworks and tools.
         </p>
-      </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg-grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
         {projects.map((project, key) => (
           <div
             key={key}
@@ -104,13 +103,13 @@ export const ProjectsSection = () => {
              hover:shadow-[0_0_25px_hsl(var(--primary)),inset_0_0_20px_hsl(var(--primary))]
              transition-all duration-500 hover:scale-[1.02] card-hover"
           >
-            <div className="md:h-100 h-48 overflow-hidden">
+            <div className="h-48 md:h-72 overflow-hidden">
               {project.image ? (
                 <a href={project.demoUrl}>
                   <img
                     src={project.image}
                     alt={project.title}
-                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110 "
+                    className="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-110"
                   />
                 </a>
               ) : (
@@ -164,8 +163,9 @@ export const ProjectsSection = () => {
                 </div>
               </div>
             </div>
-          </div>
-        ))}
+            </div>
+          ))}
+        </div>
       </div>
     </section>
   );

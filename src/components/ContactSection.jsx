@@ -7,12 +7,32 @@ import {
   Phone,
   Send,
 } from "lucide-react";
+import { useState } from "react";
 import { cn } from "@/lib/utils";
 
+// ponytail: FormSubmit needs no account and no backend - swap the email for the
+// alias string it mails you after the first submit if scrapers become a problem
+const FORM_ENDPOINT = "https://formsubmit.co/ajax/moseskmcmmms@gmail.com";
+
 export const ContactSection = () => {
-  const handleSubmit = (e) => {
+  const [status, setStatus] = useState("idle");
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    setTimeout(() => {}, 1500);
+    const form = e.target;
+    setStatus("sending");
+    try {
+      const res = await fetch(FORM_ENDPOINT, {
+        method: "POST",
+        headers: { Accept: "application/json" },
+        body: new FormData(form),
+      });
+      if (!res.ok) throw new Error(res.status);
+      form.reset();
+      setStatus("sent");
+    } catch {
+      setStatus("error");
+    }
   };
   return (
     <section id="contact" className="py-24 px-4 relative bg-secondary/30 ">
@@ -102,7 +122,8 @@ export const ContactSection = () => {
 
           <div className="bg-card p-8 rounded-lg shadow-xs">
             <h3 className="text-2xl font-semibold mb-6"> Send a Message</h3>
-            <form className="space-y-6">
+            <form className="space-y-6" onSubmit={handleSubmit}>
+              <input type="hidden" name="_subject" value="Portfolio contact form" />
               <div>
                 <label
                   htmlFor="name"
@@ -158,13 +179,27 @@ export const ContactSection = () => {
 
               <button
                 type="submit"
+                disabled={status === "sending"}
                 className={cn(
-                  "cosmic-button w-full flex items-center justify-center gap-2"
+                  "cosmic-button w-full flex items-center justify-center gap-2",
+                  status === "sending" && "opacity-70 cursor-not-allowed"
                 )}
               >
-                {" "}
-                Send Message <Send size={16} />{" "}
+                {status === "sending" ? "Sending..." : "Send Message"}
+                <Send size={16} />
               </button>
+
+              {status === "sent" && (
+                <p className="text-sm text-primary">
+                  Thanks! Your message is on its way.
+                </p>
+              )}
+              {status === "error" && (
+                <p className="text-sm text-destructive">
+                  Something went wrong. Please email me directly at
+                  moseskmcmmms@gmail.com.
+                </p>
+              )}
             </form>
           </div>
         </div>
