@@ -73,12 +73,10 @@ export const SkillSection = () => {
             </button>
           ))}
         </div>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg-grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 stage-3d">
           {filteredSkills.map((skill, key) => (
-            <div
-              key={key}
-              className="bg-card p-6 rounded-lg shadow-xs card-hover"
-            >
+            <div key={skill.name} className="scroll-3d">
+            <div className="bg-card p-6 rounded-lg shadow-xs tilt-3d">
               <div className="text-left mb-4">
                 <h2 className="font-semibold text-lg"> {skill.name}</h2>
               </div>
@@ -94,6 +92,7 @@ export const SkillSection = () => {
                   {skill.level}%
                 </span>
               </div>
+            </div>
             </div>
           ))}
         </div>

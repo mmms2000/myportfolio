@@ -93,15 +93,15 @@ export const ProjectsSection = () => {
           modern frameworks and tools.
         </p>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 stage-3d">
         {projects.map((project, key) => (
+          <div key={key} className="scroll-3d">
           <div
-            key={key}
             className="group relative bg-card rounded-lg overflow-hidden 
              border-[2px] border-primary
              shadow-[0_0_15px_hsl(var(--primary)),inset_0_0_15px_hsl(var(--primary))]
              hover:shadow-[0_0_25px_hsl(var(--primary)),inset_0_0_20px_hsl(var(--primary))]
-             transition-all duration-500 hover:scale-[1.02] card-hover"
+             tilt-3d"
           >
             <div className="h-48 md:h-72 overflow-hidden">
               {project.image ? (
@@ -164,6 +164,7 @@ export const ProjectsSection = () => {
               </div>
             </div>
             </div>
+          </div>
           ))}
         </div>
       </div>

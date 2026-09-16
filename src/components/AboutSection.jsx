@@ -8,8 +8,8 @@ export const AboutSection = () => {
           About <span className="text-primary"> Me</span>
         </h2>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-          <div className="space-y-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center stage-3d">
+          <div className="space-y-6 scroll-3d-side">
             <h3 className="text-2xl font-semibold">
               {" "}
               Passionate Web Developer
@@ -36,7 +36,7 @@ export const AboutSection = () => {
           </div>
 
           <div className="grid grid-cols-1 gap-6">
-            <div className="gradient-border p-6 card-hover">
+            <div className="gradient-border p-6 tilt-3d scroll-3d">
               <div className="flex items-start gap-4">
                 <div className="p-3 rounded-full bg-primary/10">
                   <Code className="h-6 w-6 text-primary" />
@@ -52,7 +52,7 @@ export const AboutSection = () => {
                 </div>
               </div>
             </div>
-            <div className="gradient-border p-6 card-hover">
+            <div className="gradient-border p-6 tilt-3d scroll-3d">
               <div className="flex items-start gap-4">
                 <div className="p-3 rounded-full bg-primary/10">
                   <GraduationCap className="h-6 w-6 text-primary" />
@@ -68,7 +68,7 @@ export const AboutSection = () => {
                 </div>
               </div>
             </div>
-            <div className="gradient-border p-6 card-hover">
+            <div className="gradient-border p-6 tilt-3d scroll-3d">
               <div className="flex items-start gap-4">
                 <div className="p-3 rounded-full bg-primary/10">
                   <HeartHandshake className="h-6 w-6 text-primary" />

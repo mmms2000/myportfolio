@@ -154,6 +154,109 @@
   box-shadow: 0 0 10px 5px rgba(255, 255, 255, 0.3);
 }
 
+
+/* ---------------------------------------------------------------------------
+   Scroll-driven 3D. Native CSS scroll timelines - no library, no scroll
+   listener, and the animation runs off the main thread.
+   ponytail: everything sits inside @supports, so a browser without
+   animation-timeline (Firefox today) simply renders the page flat and static.
+   --------------------------------------------------------------------------- */
+
+@keyframes rise-3d {
+  from {
+    opacity: 0;
+    transform: perspective(1400px) translate3d(0, 64px, -180px) rotateX(14deg)
+      scale(0.92);
+  }
+  to {
+    opacity: 1;
+    transform: perspective(1400px) translate3d(0, 0, 0) rotateX(0deg) scale(1);
+  }
+}
+
+@keyframes rise-3d-left {
+  from {
+    opacity: 0;
+    transform: perspective(1400px) translate3d(-40px, 40px, -140px)
+      rotateY(12deg) rotateX(6deg);
+  }
+  to {
+    opacity: 1;
+    transform: perspective(1400px) translate3d(0, 0, 0) rotateY(0deg)
+      rotateX(0deg);
+  }
+}
+
+@keyframes depart-3d {
+  from {
+    opacity: 1;
+    transform: perspective(1200px) translate3d(0, 0, 0) scale(1);
+    filter: blur(0);
+  }
+  to {
+    opacity: 0;
+    transform: perspective(1200px) translate3d(0, -40px, -260px) scale(0.9);
+    filter: blur(6px);
+  }
+}
+
+@supports (animation-timeline: view()) {
+  /* card / block rises out of depth as it scrolls into view */
+  .scroll-3d {
+    animation: rise-3d linear both;
+    animation-timeline: view();
+    animation-range: entry 5% cover 32%;
+    transform-origin: 50% 100%;
+  }
+
+  /* same idea, swung in from the side - for text columns */
+  .scroll-3d-side {
+    animation: rise-3d-left linear both;
+    animation-timeline: view();
+    animation-range: entry 5% cover 35%;
+  }
+
+  /* hero recedes into the distance as you scroll past it */
+  .scroll-3d-depart {
+    animation: depart-3d linear both;
+    animation-timeline: view();
+    animation-range: exit 0% exit 90%;
+  }
+}
+
+/* A scroll effect nobody asked for is a scroll effect nobody wants. */
+@media (prefers-reduced-motion: reduce) {
+  .scroll-3d,
+  .scroll-3d-side,
+  .scroll-3d-depart {
+    animation: none;
+  }
+}
+
+/* Uniform tilt on hover. Pointer-tracked tilt would need JS; this reads the
+   same at a glance and costs one transition. */
+@utility tilt-3d {
+  transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.5s ease;
+  transform-style: preserve-3d;
+
+  &:hover {
+    transform: perspective(900px) rotateX(3deg) rotateY(-4deg) translateY(-8px)
+      scale(1.02);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tilt-3d:hover {
+    transform: none;
+  }
+}
+
+/* stage that gives children a shared vanishing point */
+@utility stage-3d {
+  perspective: 1400px;
+  transform-style: preserve-3d;
+}
+
 #root {
   max-width: 100%;
   margin: 0 auto;
