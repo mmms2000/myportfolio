@@ -1,8 +1,35 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 export const StarBackground = () => {
   const [stars, setStars] = useState([]);
   const [meteors, setMeteors] = useState([]);
+  const spotlightRef = useRef(null);
+
+  // ponytail: one rAF-throttled pointermove writing CSS vars - no re-renders, no lib.
+  // Touch screens never hover, so the spotlight simply stays hidden there.
+  useEffect(() => {
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    let frame = 0;
+    const onMove = (e) => {
+      if (frame) return;
+      frame = requestAnimationFrame(() => {
+        frame = 0;
+        const el = spotlightRef.current;
+        if (!el) return;
+        el.style.setProperty("--mx", e.clientX + "px");
+        el.style.setProperty("--my", e.clientY + "px");
+        el.style.opacity = "1";
+      });
+    };
+    const onLeave = () => spotlightRef.current && (spotlightRef.current.style.opacity = "0");
+    window.addEventListener("pointermove", onMove);
+    document.documentElement.addEventListener("pointerleave", onLeave);
+    return () => {
+      window.removeEventListener("pointermove", onMove);
+      document.documentElement.removeEventListener("pointerleave", onLeave);
+      cancelAnimationFrame(frame);
+    };
+  }, []);
 
   useEffect(() => {
     generateStars();
@@ -57,6 +84,7 @@ export const StarBackground = () => {
 
   return (
     <div className="fixed inset-0 overflow-hidden pointer-events-none z-0">
+      <div ref={spotlightRef} className="cursor-spotlight" />
       {stars.map((star) => (
         <div
           key={star.id}
