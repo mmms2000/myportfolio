@@ -20,7 +20,7 @@ const skills = [
   { name: "WebRTC", level: 60, category: "frontend" },
 
   // Backend
-  { name: "Node.js", level: 20, category: "backend" },
+  { name: "Node.js", level: 55, category: "backend" },
   { name: "Express", level: 20, category: "backend" },
   { name: "MongoDB", level: 65, category: "backend" },
   { name: "Spring Boot", level: 75, category: "backend" },
@@ -28,6 +28,8 @@ const skills = [
   { name: "PostgreSQL", level: 70, category: "backend" },
   { name: "Redis", level: 55, category: "backend" },
   { name: "REST API", level: 80, category: "backend" },
+  { name: "Prisma", level: 65, category: "backend" },
+  { name: "WebSocket", level: 65, category: "backend" },
 
   // Tools
   { name: "Git / GitHub", level: 90, category: "tools" },
@@ -39,6 +41,7 @@ const skills = [
   { name: "Gradle", level: 60, category: "tools" },
   { name: "Docker", level: 55, category: "tools" },
   { name: "Firebase / FCM", level: 65, category: "tools" },
+  { name: "Google Cloud (STT / Translate)", level: 60, category: "tools" },
 ];
 
 const categories = ["all", "frontend", "backend", "tools"];

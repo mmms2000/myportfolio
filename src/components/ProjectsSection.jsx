@@ -1,4 +1,6 @@
 import { ExternalLink, Github, Lock } from "lucide-react";
+import winarena from "../assets/winarena.jpg";
+import wintrans from "../assets/wintrans.jpg";
 import winkorea from "../assets/winkorea.jpg";
 import winkoreavisa from "../assets/winkoreavisa.jpg";
 import nbridge from "../assets/nbridge.jpg";
@@ -8,6 +10,26 @@ import project2 from "../assets/project2.png";
 import project3 from "../assets/project3.png";
 
 const projects = [
+{
+    id: 8,
+    title: "WIN ARENA — 학생 전용 SNS 챌린지 투표",
+    description:
+      "A one-person-one-ballot voting system for a 12-team video contest: students pick exactly 3 teams on mobile while admins upload rosters from Excel, manage team videos and watch live turnout. Concurrent submits are guarded so only one ballot ever lands.",
+    image: winarena,
+    tags: ["Next.js", "TypeScript", "Tailwind CSS", "Prisma", "PostgreSQL", "JWT (jose)", "Vercel"],
+    demoUrl: "https://winkoreaarena.vercel.app",
+    private: true,
+  },
+{
+    id: 9,
+    title: "WIN TRANS — 실시간 다국어 자막 플랫폼",
+    description:
+      "One speaker talks in Korean; 200–400 listeners read live subtitles in the language they choose. Streams 16kHz PCM to Google Speech-to-Text over WebSocket, translates once per language rather than per listener, and syncs PDF slides alongside the captions.",
+    image: wintrans,
+    tags: ["Next.js", "TypeScript", "Node.js", "WebSocket", "Google STT", "Cloud Translation", "PDF.js"],
+    demoUrl: "https://win-trans.vercel.app",
+    private: true,
+  },
 {
     id: 4,
     title: "WIN KOREA — 외국인 구직·상담 플랫폼",
