@@ -186,7 +186,7 @@ export const StarBackground = () => {
   }, []);
 
   const generateMeteors = () => {
-    const numberOfMeteors = 4;
+    const numberOfMeteors = 6;
 
     const newMeteors = [];
 
@@ -211,12 +211,18 @@ export const StarBackground = () => {
         <div
           key={meteor.id}
           className="meteor animate-meteor "
+          // ponytail: new random spot each loop straight on the node - no state, no re-render
+          onAnimationIteration={(e) => {
+            e.currentTarget.style.left = Math.random() * 100 + "%";
+            e.currentTarget.style.top = Math.random() * 40 + "%";
+          }}
           style={{
             width: meteor.size * 50 + "px",
             height: meteor.size * 2 + "px",
             left: meteor.x + "%",
             top: meteor.y + "%",
-            animationDelay: meteor.delay + "s",
+            // negative delay = already mid-flight on load; a positive one left them parked, unrotated
+            animationDelay: -meteor.delay + "s",
             animationDuration: meteor.animationDuration + "s",
           }}
         />
